@@ -8,7 +8,7 @@ const Usuario = require('../models/Usuario')
 router.post('/registro', async function(req, res){
     try {
         //1 leer nombre, email y password del body
-        const nombre = req.bodey.nombre
+        const nombre = req.body.nombre
         const email = req.body.email
         const password = req.body.password
         //2 Comprobar si el email ya existe
