@@ -30,15 +30,21 @@ router.get('/:id', async function(req,res){
 })
 router.post('/', authMiddleware, esAdmin, async function(req,res){
     try {
-        const productos = new Producto(req.body)
+      const datos = req.body
+      datos.enStock = datos.cantidad >0
+        const productos = new Producto(datos)
         await productos.save()
         res.json(productos)
     } catch (error) {
+      console.log(error)
         res.status(500).json({error: 'Error al crear producto'})
     }
 })
 router.put('/:id', authMiddleware, esAdmin, async function(req,res){
       try {
+        if(req.body.cantidad !== undefined) {
+  req.body.enStock = req.body.cantidad > 0
+}
     const productos = await Producto.findByIdAndUpdate(req.params.id, req.body,{new:true})
     if(!productos){
       res.status(404).json({error: 'Producto no encontrado'})

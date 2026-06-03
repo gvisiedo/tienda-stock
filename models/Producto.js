@@ -7,9 +7,9 @@ const productoSchema = new mongoose.Schema({
   enStock:{type: Boolean, default: false}
 })
 
-productoSchema.pre('save', function(next){
+productoSchema.pre('save', async function(){
     this.enStock = this.cantidad > 0
-    next()
+    
 })
 
 const Producto = mongoose.model('Producto', productoSchema)
