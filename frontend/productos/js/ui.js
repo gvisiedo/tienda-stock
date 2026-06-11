@@ -16,10 +16,14 @@ export function mostrarProductos(productos) {
   }
 
 // Mostrar u ocultar el formulario según el rol
-export function mostrarFormulario(esAdmin={role:admin}) {
-    if(!esAdmin === 'admin') return;
-    
+export function mostrarFormulario(esAdmin) {
+    const formulario = document.querySelector('#formProducto')
+    formulario.style.display = esAdmin ? 'block': 'none'
+        
  }
 
 // Mostrar mensaje de error
-export function mostrarError(mensaje) {}
+export function mostrarError(mensaje) {
+   const error = document.querySelector('#error')
+   error.textContent= mensaje
+}
