@@ -30,7 +30,8 @@ export async function getProductos() {
 
 // Crear producto
 export async function crearProducto(datos, token) {
-    try {
+   
+  try {
     const respuesta = await fetch('http://localhost:3000/productos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json','authorization':`Bearer ${token}` },
