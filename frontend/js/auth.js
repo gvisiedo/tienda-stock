@@ -12,7 +12,7 @@ if(btnLogin) {
 
 // Formulario login → llama a la API
 // (esto está en login.html)
-const btnIniciarSesion = document.querySelector('#btnLogin')  
+const btnIniciarSesion = document.querySelector('#btnIniciarSesion')  
     if(btnIniciarSesion){
         btnIniciarSesion.addEventListener('click',async function(){
          const email = document.querySelector('#email').value
